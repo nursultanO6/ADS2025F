@@ -28,17 +28,14 @@ int main(){
     while(k--){
         prev = prev->next;
     }
-    ListNode* half = prev ->next;
-    prev-> next= nullptr;
+    ListNode* half = prev->next;
+    prev->next = nullptr;
     dum->next = head->next;
     head->next = half;
 
-    ListNode*temp = head->next;
-    while (temp)
-    {
+    ListNode* temp = half;
+    while(half){
         cout << temp->val << " ";
-        temp = temp->next;
+        temp = temp ->next;
     }
-    
-
 }
