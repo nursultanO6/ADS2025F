@@ -13,23 +13,20 @@ struct ListNode{
 
 int main(){
     int n; cin >> n;
-    
-    ListNode* text = new ListNode(0);
-    ListNode* dum = text;
-
-    for(int i = 0; i<n;i++){
-        int b; cin >> b;
-        dum ->next = new ListNode(b);
-        dum = dum -> next;
+    ListNode* head = new ListNode(0);
+    ListNode* dum = head;
+    for(int i = 0; i < n; i++){
+        int k; cin >> k;
+        dum ->next = new ListNode(k);
+        dum = dum->next;
     }
-
-    ListNode* head = text ->next;
-    while(head && head->next){
-        cout << head->val << " ";
-        head = head->next->next;
+    ListNode* temp = head->next;
+    while(temp && temp->next){
+        cout << temp-> val << " ";
+        temp = temp -> next -> next;
     }
-    // if(head){
-    //     cout << head->val;
-    // }
+    if(temp){
+      cout << temp->val;
+    }
 
 }
