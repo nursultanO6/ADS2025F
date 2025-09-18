@@ -17,7 +17,7 @@ int main()
         int g; cin >> g;
         n.push_back(g);
     }
-    while(!b.empty() && !n.empty())
+    while(!b.empty() && !n.empty() && nu < 1000000)
     {   
         int bb = b.front();
         int nn = n.front();
@@ -27,27 +27,23 @@ int main()
             b.push_back(bb);
             b.push_back(nn);
         }else if(bb == 9 && nn == 0) {
-            n.push_back(nn);
             n.push_back(bb);
-        }else if(bb > nn) {
+            n.push_back(nn);
+        }else if(bb - nn > 0) {
             b.push_back(bb);
             b.push_back(nn);
         } else {
-            n.push_back(nn);
             n.push_back(bb);
+            n.push_back(nn);
         }
 
         nu++;
-        if(nu >= 1000000){
-            cout << "blin nichya";
-            t = 1;
-            break;
-        }
    
     }
-    if(n.empty() && t == 0){
-        cout << "Boris" << " " << nu;
-    }else if(b.empty() && t == 0){
-        cout << "Nursik" << " " << nu;
+    if(nu >= 1000000)cout << "blin nichya";
+    else if(n.empty()){
+        cout << "Boris " << nu;
+    }else if(b.empty()){
+        cout << "Nursik " << nu;
     }
 }
