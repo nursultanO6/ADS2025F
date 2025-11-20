@@ -4,14 +4,12 @@ using namespace std;
 
 const int C = 1e9 + 7;
 const int p = 11;
-string getHash(string s)
-{
-    ull hash = 0, pow = 1;
-    for (int i = 0; i < s.size(); i++)
-    {
+string getHash(string s){
+    ull hash = 0, pow = 1;    
+    for(int i = 0; i < s.size(); i++){
         ull curH = (s[i] - 47) * pow % C;
         hash = (hash + curH) % C;
-        pow = (pow * p) % C;
+        pow = (pow * p) % C;        
     }
     return to_string(hash);
 }
